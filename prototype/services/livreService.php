@@ -1,7 +1,7 @@
 <?php
-    require_once "data_tier/data_manager.php";
+    require_once dirname(__FILE__)."/../DataAccess/livreDAO.php";
 
-class book{
+class BookServices{
 
     private $data;
 
@@ -18,7 +18,7 @@ class book{
     
     }
 
-    function afficheList(){
+    function getBooks(){
         $list = $this->data->getData();
         return json_decode($list);
     }

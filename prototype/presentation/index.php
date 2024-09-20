@@ -1,5 +1,5 @@
 <?php
-    require_once "logic_tier/bibliotheq_manager.php";
+    require_once dirname(__FILE__)."/../";
 
      echo "entre LE NOM : ";
      $nom = trim(fgets(STDIN));

@@ -5,22 +5,17 @@
 
 
         function getData(){
-            $this->data =file_get_contents("db/json_db.json");
+            $this->data =file_get_contents(dirname(__FILE__)."/../db/json_db.json");
             return  $this->data;
         }
 
         function pushData($array){
-            $file = fopen("db/json_db.json","w");
+            $file = fopen(dirname(__FILE__)."/../db/json_db.json","w");
             fwrite($file,$array);
             fclose($file);
         }
 
     }
-
-
-
-
-
-
+    
 
 ?>
