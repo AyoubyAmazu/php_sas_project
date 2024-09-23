@@ -5,16 +5,16 @@ class BookServices{
 
     private $data;
 
-    public function __construct($data) {
-        $this->data = $data;
-    }
+   
 
-    function addBook($array){
-        $list_json = $this->data->getData();
-        $list = json_decode($list_json);
-        array_push($list,$array);
-       $newArray = json_encode($list);
-        $this->data->pushData($newArray);
+    function addBook($book){
+    
+        
+        //     $list_json = $this->data->getData();
+    //     $list = json_decode($list_json);
+    //     array_push($list,$array);
+    //    $newArray = json_encode($list);
+    //     $this->data->pushData($newArray);
     
     }
 

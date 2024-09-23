@@ -9,26 +9,18 @@
 
         public function getBooks(){
             
-            $books =  $this->data->getData();
-            return  $books;
+            return $this->data->getBooks();
         }
 
-        public function addBook($array){
-            $this->data->setData($array);
+        public function addBook($book){
+            $this->data->setBook($book);
+            $this->data->save();
+        //    $allData = $this->data->getData();
+        //    array_push($allData["books"], $array);
+        //     $this->data->setData($allData);
         }
 
     }
-
-
-
-
-    $AA= NEW BookDAO();
-    $bb = $AA->getBooks();
-    echo "<pre>";
-    print_r($bb["books"]);
-    echo '</pre>';
-
-
 
 
 ?>
