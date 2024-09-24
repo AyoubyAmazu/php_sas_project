@@ -9,15 +9,13 @@
 
         public function getBooks(){
             
-            return $this->data->getBooks();
+            return $this->data->books;
         }
 
-        public function addBook($book){
-            $this->data->setBook($book);
+        public function setBook($book){
+            array_push($this->data->books,$book);
             $this->data->save();
-        //    $allData = $this->data->getData();
-        //    array_push($allData["books"], $array);
-        //     $this->data->setData($allData);
+        
         }
 
     }

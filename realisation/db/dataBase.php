@@ -1,7 +1,10 @@
 <?php 
 class DataBase {
 
-    public $books=[];
+    public $livres=[];
+    public $licteurs = [];
+    public $autheur = [];
+
     public function __construct() {
         if($this->getData()){
             $this->books = $this->getData()->books;

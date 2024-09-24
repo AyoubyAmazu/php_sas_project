@@ -1,20 +1,20 @@
 <?php
+require_once dirname( __FILE__ ) ."/../Services/bookServices.php";
 
-class book{
-    private $id;
-    private $title;
-    private $ISBN;
+class Book{
+private $id;
+private $title;
+private $ISBN;
 
-    public function __construct($id,$title,$ISBN) {
-        $this->id = $id;
-        $this->title = $title;
-        $this->ISBN = $ISBN;
+  public function __construct( $title, $ISBN) {
+    $this->id = time();
+    $this->title = $title;
+    $this->ISBN = $ISBN;
     }
 
     public function getId() {
         return $this->id;}
-    public function setId($id){
-        $this->id = $id;} 
+ 
     public function getTitle(){
         return $this->title;}
     public function setTitle($title){
@@ -24,10 +24,13 @@ class book{
     public function setISBN($ISBN){
         $this->ISBN = $ISBN;}
 
-    
 
-   
 }
+
+
+
+
+
 
 
 ?>
