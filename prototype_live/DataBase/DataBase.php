@@ -10,9 +10,12 @@
         }
 
         private function getBooks(){
-        $fileContent = file_get_contents(dirname(__FILE__)."/db.txt");
-        $data = unserialize($fileContent);
-        return $data;
+            $file =dirname(__FILE__)."/db.txt";
+            if(file_exists($file)){
+            $dataPath = file_get_contents( $file );
+            $Data = unserialize($dataPath );
+            return  $Data;
+            }
         
         }
 

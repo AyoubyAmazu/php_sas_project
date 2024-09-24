@@ -2,18 +2,27 @@
 class DataBase {
 
     public $livres=[];
-    public $licteurs = [];
     public $autheur = [];
+    
+    public $lecteurs = [];
+
+    public $emprunt = [];
 
     public function __construct() {
         if($this->getData()){
-            $this->books = $this->getData()->books;
+            $this->livres = $this->getData()->livres;
+            $this->autheur = $this->getData()->autheur;
+            $this->lecteurs = $this->getData()->lecteurs;
+            $this->emprunt = $this->getData()->emprunt;
          }
 }
     private function getData(){
-        $dataPath = file_get_contents( dirname(__FILE__)."/db.txt");
+        $file =dirname(__FILE__)."/db.txt";
+        if(file_exists($file)){
+        $dataPath = file_get_contents( $file );
         $Data = unserialize($dataPath );
         return  $Data;
+        }
     }
     
     private function setData(){
