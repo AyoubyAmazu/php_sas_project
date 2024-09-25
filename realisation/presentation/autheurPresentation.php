@@ -15,11 +15,11 @@ class AutheurPresentation
     if (!empty($autheurs)) {
       foreach ($autheurs as $autheur) {
         echo "---------------------------------\n";
-        echo "NOM: " . $autheur->nom . "\n";
-        echo "email: " .$autheur->email . "\n";
+        echo "NOM: " . $autheur->getName() . "\n";
+        echo "email: " .$autheur->getEmail() . "\n";
         echo "list des livres: \n";
-        foreach( $autheur->livres as $livre){
-            echo $livre.",";
+        foreach( $autheur->getLivres() as $livre){
+            echo "              ".$livre."\n";
         }
 
 

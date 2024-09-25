@@ -12,7 +12,7 @@
                 $this->id = time(); 
                 $this->name = $name;
                 $this->email = $email;
-                $this->livres[] = $livre;
+                $this->livres = $livre;
             }
             public function getId() {return $this->id;}
             public function getName(){return $this->name;}
@@ -20,7 +20,7 @@
             public function getEmail(){return $this->email;}
             public function setEmail($email){$this->email = $email;}
             public function getLivres(){return $this->livres;}
-            public function setLivres($Livres){$this->livres[] = $Livres;}
+            public function setLivres($Livres){$this->livres = $Livres;}
 
 
         }
