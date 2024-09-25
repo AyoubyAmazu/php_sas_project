@@ -3,10 +3,7 @@
     
     class DataManager{
         private $data;
-        private $livres;
-        private $autheur;
-        private $lecteurs;
-        private $emprunt; 
+   
         public function __construct(){
             $this->data = new DataBase();
         }
@@ -18,6 +15,7 @@
 
         public function setLivre($livres){
             $this->data->livres[] = $livres;
+            $this->data->save();
         }
 
         public function getEmprunts(){
@@ -25,23 +23,24 @@
         }
         public function setEmprunt($emprunt){
             $this->data->emprunt[] = $emprunt;
+            $this->data->save();
         }
 
         public function setLecteur($lecteur){
             $this->data->lecteurs[] = $lecteur;
+            $this->data->save();
         }
         public function getLecteurs(){
             return $this->data->lecteurs;
         }
         public function setAutheur($autheur){
             $this->data->autheur[] = $autheur;
+            $this->data->save();
         }
         public function getAutheurs(){
            return $this->data->autheur ;
         }
-        public function save() {
-            $this->data->save();
-        }
+      
 
 
     }

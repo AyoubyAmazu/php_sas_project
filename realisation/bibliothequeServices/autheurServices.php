@@ -12,8 +12,9 @@
         public function getListAutheurs() {
             return $this->data->getAutheurs();}
 
-        public function addAutheur( $autheurs ) {
+        public function ajouteAutheur( $autheurs ) {
             $this->data->setAutheur( $autheurs );
+            $this->data->save();
         }
         public function removeAutheur( $id ) {
            $autheur = $this->getListAutheurs();

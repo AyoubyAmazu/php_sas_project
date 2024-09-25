@@ -17,9 +17,8 @@ class DataBase {
          }
 }
     private function getData(){
-        $file =dirname(__FILE__)."/db.txt";
-        if(file_exists($file)){
-        $dataPath = file_get_contents( $file );
+        if(file_exists(dirname(__FILE__)."/db.txt")){
+        $dataPath = file_get_contents( dirname(__FILE__)."/db.txt");
         $Data = unserialize($dataPath );
         return  $Data;
         }

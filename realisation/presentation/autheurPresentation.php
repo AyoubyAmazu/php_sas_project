@@ -7,11 +7,11 @@ class AutheurPresentation
 {
   public function viewAutheurs()
   {
-    echo "\nViewing the list of Books\n";
+    echo "\nafficher list des autheurs\n";
 
     $autheurService = new AutheursServices();
     $autheurs =  $autheurService->getListAutheurs();
-
+    // var_dump( $autheurs);
     if (!empty($autheurs)) {
       foreach ($autheurs as $autheur) {
         echo "---------------------------------\n";
@@ -49,9 +49,9 @@ class AutheurPresentation
         $listLivres = explode(",", $livres);
     }
 
-    $new_book = new Autheur($nom , $email,$listLivres);
-    $bookService = new BookServices();
-    $bookService->setBook($new_book);
+    $nouveauAuth = new Autheur($nom , $email,$listLivres);
+    $AuthService = new AutheursServices();
+    $AuthService->ajouteAutheur($nouveauAuth);
     echo "autheur ajouter avec success \n\n";
   }
 }

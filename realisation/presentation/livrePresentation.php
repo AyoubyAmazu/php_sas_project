@@ -1,8 +1,10 @@
 <?php
+  require_once dirname(__FILE__)."/../bibliothequeServices/livreServices.php";
+  require_once dirname(__FILE__)."/../entities/livre.php";
 
 class LivrePresentation{
 
-    public function listLivres()
+    public function viewlistLivres()
     {
       echo "\nViewing the list of Books\n";
   
@@ -14,6 +16,7 @@ class LivrePresentation{
           echo "---------------------------------\n";
           echo "ISBN: " .$livre->ISBN . "\n";
           echo "Title:  " .$livre->title . " \n";
+          echo "Date de Publication:  " .$livre->datePub . " \n";
         }
       } else {
         echo "No livres available.\n";
@@ -24,25 +27,24 @@ class LivrePresentation{
     public function ajoutLivre()
     {
       echo "\nAjouter nouveau autheur\n";
-      $nom = askQuestion("Enter le ISBN de lecture (or type 'back' to go back): ");
-      if (strtolower($nom) === "back") {
+      $ISBN = askQuestion("Enter le ISBN de lecture (or type 'back' to go back): ");
+      if (strtolower($ISBN) === "back") {
         return;
       }
   
-      $email = askQuestion("Enter l'email de l'autheur (or type 'back' to go back): ");
-      if (strtolower($email) === "back") {
+      $titre = askQuestion("Enter le titre de livre (or type 'back' to go back): ");
+      if (strtolower($titre) === "back") {
         return;
       }
-      $livres = askQuestion("Enter list de livres siparité avec (,) (or type 'back' to go back): ");
-      if (strtolower($livres) === "back") {
+      $datePub = askQuestion("Enter la date de publication (or type 'back' to go back): ");
+      if (strtolower($datePub) === "back") {
         return;
-      }else{
-          $listLivres = explode(",", $livres);
       }
   
-      $new_book = new Autheur($nom , $email,$listLivres);
-      $bookService = new BookServices();
-      $bookService->setBook($new_book);
+      $Nouveaulivre = new Livre($ISBN , $titre,$datePub);
+      $livreServices = new LivreServices();
+      $livreServices->ajouterLivre($Nouveaulivre);
+      
       echo "autheur ajouter avec success \n\n";
     }
 

@@ -2,8 +2,8 @@
 
         class Autheur{
 
-            private $id;
             private $name;
+            private $id;
             private $email;
 
             private $livres = [];
@@ -14,7 +14,7 @@
                 $this->email = $email;
                 $this->livres[] = $livre;
             }
-
+            public function getId() {return $this->id;}
             public function getName(){return $this->name;}
             public function setName($name){$this->name = $name;}
             public function getEmail(){return $this->email;}
