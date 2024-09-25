@@ -1,5 +1,5 @@
 <?php
-    require_once dirname( __FILE__ ) ."/../db/dataBase.php";
+    require_once dirname( __FILE__ ) ."/../db/DataBase.php";
     
     class DataManager{
         private $data;

@@ -1,6 +1,6 @@
 <?php
   require_once dirname(__FILE__)."/../bibliothequeServices/livreServices.php";
-  require_once dirname(__FILE__)."/../entities/livre.php";
+  require_once dirname(__FILE__)."/../entities/Livre.php";
 
 class LivrePresentation{
 
