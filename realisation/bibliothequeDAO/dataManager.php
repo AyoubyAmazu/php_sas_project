@@ -40,7 +40,7 @@
         public function getAutheurs(){
            return $this->data->autheur ;
         }
-      
+        public function save(){$this->data->save();}
 
 
     }

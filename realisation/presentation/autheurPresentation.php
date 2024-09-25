@@ -1,7 +1,7 @@
 <?php
 
-require_once dirname(__FILE__)."/../bibliothequeServices/autheurServices.php";
-require_once dirname(__FILE__)."/../entities/autheur.php";
+require_once dirname(__FILE__) . "/../bibliothequeServices/autheurServices.php";
+require_once dirname(__FILE__) . "/../entities/autheur.php";
 
 class AutheurPresentation
 {
@@ -10,16 +10,15 @@ class AutheurPresentation
     echo "\nafficher list des autheurs\n";
 
     $autheurService = new AutheursServices();
-    $autheurs =  $autheurService->getListAutheurs();
-    // var_dump( $autheurs);
+    $autheurs = $autheurService->getListAutheurs();
     if (!empty($autheurs)) {
       foreach ($autheurs as $autheur) {
         echo "---------------------------------\n";
         echo "NOM: " . $autheur->getName() . "\n";
-        echo "email: " .$autheur->getEmail() . "\n";
+        echo "email: " . $autheur->getEmail() . "\n";
         echo "list des livres: \n";
-        foreach( $autheur->getLivres() as $livre){
-            echo "              ".$livre."\n";
+        foreach ($autheur->getLivres() as $livre) {
+          echo "              " . $livre . "\n";
         }
 
 
@@ -45,17 +44,38 @@ class AutheurPresentation
     $livres = askQuestion("Enter list de livres siparité avec (,) (or type 'back' to go back): ");
     if (strtolower($livres) === "back") {
       return;
-    }else{
-        $listLivres = explode(",", $livres);
+    } else {
+      $listLivres = explode(",", $livres);
     }
 
-    $nouveauAuth = new Autheur($nom , $email,$listLivres);
+    $nouveauAuth = new Autheur($nom, $email, $listLivres);
     $AuthService = new AutheursServices();
     $AuthService->ajouteAutheur($nouveauAuth);
     echo "autheur ajouter avec success \n\n";
   }
-}
 
+  public function modifierAutheur()
+  {
+    echo "\nmodier un autheur\n";
+    $nom = askQuestion("Enter le nom de l'autheur (or type 'back' to go back): ");
+    if (strtolower($nom) === "back") {
+      return;
+    }
+    $autheurService = new AutheursServices();
+    $autheurs = $autheurService->getListAutheurs();
+    foreach( $autheurs as $autheur ) {
+      if( $autheur->getName() === $nom ) {
+          $choix = askQuestion("modifier le : nom,email,livres (or type 'back' to go back): ");
+          if (strtolower($choix) === "back") {
+            return;
+          }else{
+            echo $autheurService->modifierAutheurs($choix)."\n\n";
+          }
+      }
+    
+    }
+  }
+}
 
 
 ?>
