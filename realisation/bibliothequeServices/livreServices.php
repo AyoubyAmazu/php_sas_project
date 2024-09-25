@@ -1,5 +1,5 @@
 <?php
-    require_once (dirname(__FILE__) ."/../bibliothequeDAO/dataManager.php");
+    require_once (dirname(__FILE__) ."/../dataAccess/DataManager.php");
     class LivreServices{
         private $data;
 
