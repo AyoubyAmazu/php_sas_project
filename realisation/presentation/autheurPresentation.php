@@ -71,11 +71,13 @@ class AutheurPresentation
           }else{
             echo $autheurService->modifierAutheurs($choix)."\n\n";
           }
+      }else{ echo "Il y a une erreur dans le nom de l'auteur ou il n'existe pas";}
+
       }
     
     }
   }
-}
+
 
 
 ?>

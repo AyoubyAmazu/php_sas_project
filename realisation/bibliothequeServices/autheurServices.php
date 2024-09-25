@@ -25,7 +25,6 @@
                     return;
                   }
                  $autheurs[$i]->setName($valeur);
-                 
                  $message = "le nom changer avec succes !! ";
                 } else if ($choix == "email") {
                   $valeur = askQuestion("nouveau valeur (or type 'back' to go back): ");
@@ -49,7 +48,7 @@
             }
 
             $this->data->save(); 
-            return $message;
+            echo $message;
         }
     
     //     public function removeAutheur( $id ) {
